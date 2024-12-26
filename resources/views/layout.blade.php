@@ -7,9 +7,11 @@
     <title>{{$title ?? 'Internet Speed Report'}}</title>
     @vite('resources/css/app.css')
 </head>
-<body class="font-vt323 ">
+<body class="bg-frenchGray">
     <header>
-
+       <h1 class="text-center text-4xl ubuntu-regular pt-5">
+            Internet Test Speed
+       </h1>
     </header>
     <main>
         {{$slot}}

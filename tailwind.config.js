@@ -12,20 +12,11 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                roboto: ['Roboto', 'serif'], // Base Roboto font family
-                vt323: ['VT323', 'serif'],  // VT323 font
+                roboto: ['Ubuntu', 'serif']
             },
-            fontWeight: {
-                thin: '100',
-                light: '300',
-                normal: '400',
-                medium: '500',
-                bold: '700',
-                black: '900',
-            },
-            fontStyle: {
-                italic: 'italic',
-                normal: 'normal',
+            colors: {
+                charcoal: '#2F4858',
+                frenchGray: '#CAC4CE'
             },
         },
     },
