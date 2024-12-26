@@ -39,8 +39,10 @@ class SpeedTest extends Command
 
         $output = $process->getOutput();
         $result = json_decode($output, true);
+        $name = $result['client']['isp'] . '-' . $result['server']['name'];
 
         Data::create([
+            'name' => $name,
             'download' => $result['download'],
             'upload' => $result['upload'],
             'ping' => $result['ping'],

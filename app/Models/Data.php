@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Data extends Model
 {
     protected $fillable = [
+        'name',
         'download',
         'upload',
         'ping',
@@ -38,4 +39,3 @@ class Data extends Model
         'timestamp' => 'datetime',
     ];
 }
-
