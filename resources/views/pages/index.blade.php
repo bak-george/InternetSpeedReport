@@ -1,6 +1,6 @@
 <x-layout>
     @forelse ($results as $result)
-        <p>$result</p>
+        <p class="font-vt323">$result</p>
     @empty
         <li>No results available</li>
     @endforelse

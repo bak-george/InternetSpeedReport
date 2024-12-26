@@ -9,14 +9,15 @@
     <!-- Meta description -->
     <meta name="description" content="">
 </head>
-<body>
-    <header></header>
+<body class="font-vt323 ">
+    <header>
 
+    </header>
     <main>
         {{$slot}}
     </main>
+    <footer>
 
-    <footer></footer>
-
+    </footer>
 </body>
 </html>

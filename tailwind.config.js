@@ -12,7 +12,20 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                roboto: ['Roboto', 'serif'], // Base Roboto font family
+                vt323: ['VT323', 'serif'],  // VT323 font
+            },
+            fontWeight: {
+                thin: '100',
+                light: '300',
+                normal: '400',
+                medium: '500',
+                bold: '700',
+                black: '900',
+            },
+            fontStyle: {
+                italic: 'italic',
+                normal: 'normal',
             },
         },
     },
