@@ -7,7 +7,7 @@
     <title>{{$title ?? 'Internet Speed Report'}}</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-frenchGray">
+<body class="bg-gray-200">
     <header>
        <h1 class="text-center text-4xl ubuntu-regular pt-5">
             Internet Test Speed
