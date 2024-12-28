@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Data;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\Process\Process;
 
 class SpeedTest extends Command
@@ -39,6 +40,13 @@ class SpeedTest extends Command
 
         $output = $process->getOutput();
         $result = json_decode($output, true);
+
+        if (!$result) {
+            $this->error('Invalid JSON output from Speedtest.');
+            Log::error('Speedtest JSON error: ' . json_last_error_msg());
+            return 1;
+        }
+
         $name = $result['client']['isp'] . '-' . $result['server']['name'] . '-' . $result['server']['country'];
 
         Data::create([
