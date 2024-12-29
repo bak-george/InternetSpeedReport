@@ -8,6 +8,6 @@
     <td class="ubuntu-regular whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500">{{ $row->ping }}</td>
     <td class="ubuntu-regular whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500">{{ $row->server_country }}</td>
     <td class="ubuntu-regular relative whitespace-nowrap py-4 pl-3 pr-4 text-center text-sm font-medium sm:pr-3">
-        <a href="#" class="text-blue-500 hover:text-orange-500">Show More<span class="sr-only">, Lindsay Walton</span></a>
+        <a href="{{ route('data.show', $row->id) }}" class="text-blue-500 hover:text-orange-500">Show More</a>
     </td>
 </tr>

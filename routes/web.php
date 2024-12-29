@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [DataController::class, 'show'])->name('home');
+Route::get('/', [DataController::class, 'index'])->name('home');
+
+Route::get('/data/{data}', [DataController::class, 'show'])->name('data.show');
 
 Route::post('speedtest/', function () {
     Log::info('Starting speedtest via route');
