@@ -15,7 +15,7 @@
                         <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Country - Server</th>
                         <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-3">
                             <span class="sr-only">Show More</span>
-                          </th>
+                        </th>
                       </tr>
                     </thead>
                     <tbody class="bg-white">
