@@ -1,4 +1,4 @@
-@props(['row', ])
+@props(['row'])
 
 <tr class="even:bg-gray-50 hover:bg-gray-200">
     <td class="ubuntu-regular whitespace-nowrap py-4 pl-4 pr-3 text-sm text-center text-gray-500 sm:pl-3">{{ $row->name }}</td>
