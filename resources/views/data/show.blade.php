@@ -5,9 +5,9 @@
                 <h1 class="ubuntu-bold text-gray-900 text-left text-lg">{{ $data->name }}</h1>
             </div>
             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none text-center">
-                <button type="button" class="block rounded-md bg-red-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <x-button :route="'delete'" :data="$data">
                     Delete data
-                </button>
+                </x-button>
             </div>
         </div>
         <div class="mt-8 flow-root">

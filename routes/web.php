@@ -23,3 +23,5 @@ Route::post('speedtest/', function () {
     Log::info('Speedtest completed successfully via route');
     return redirect('/')->with('success', 'Speedtest completed successfully.');
 })->name('speedtest');
+
+Route::delete('/data/{data}', [DataController::class, 'destroy'])->name('delete');

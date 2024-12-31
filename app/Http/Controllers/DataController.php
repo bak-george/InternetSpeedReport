@@ -18,4 +18,11 @@ class DataController extends Controller
     {
         return view('data.show')->with('data', $data);
     }
+
+    public function destroy(Data $data)
+    {
+        $data->delete();
+
+        return redirect('/')->with('success', 'Data deleted successfully!');
+    }
 }
