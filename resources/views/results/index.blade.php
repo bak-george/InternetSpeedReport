@@ -1,4 +1,5 @@
 <x-layout>
+    <x-data-chart :data="$data" />
     <section class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="px-4 sm:px-6 lg:px-8 rounded-lg shadow-2xl bg-white">
             <div class="mt-8 flow-root">
@@ -9,8 +10,8 @@
                       <tr>
                         <th scope="col" class="ubuntu-regular text-base py-3.5 pl-4 pr-3 text-center text-black sm:pl-3">Name</th>
                         <th scope="col" class="ubuntu-regular text-base py-3.5 pl-4 pr-3 text-center text-black sm:pl-3">Date</th>
-                        <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Download</th>
-                        <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Upload</th>
+                        <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Download (Mbps)</th>
+                        <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Upload (Mbps)</th>
                         <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Ping</th>
                         <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Country - Server</th>
                         <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-3">

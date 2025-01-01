@@ -23,15 +23,15 @@
                         <tbody class="divide-y divide-gray-200">
                             <tr>
                                 <td class="whitespace-nowrap py-4 text-sm font-medium text-gray-900">Download Speed</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $data->download }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ round($data->download / (1024 * 1024), 2) }}</td>
                             </tr>
                             <tr>
                                 <td class="whitespace-nowrap py-4 text-sm font-medium text-gray-900">Upload Speed</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $data->upload }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ round($data->upload / (1024 * 1024), 2) }}</td>
                             </tr>
                             <tr>
                                 <td class="whitespace-nowrap py-4 text-sm font-medium text-gray-900">Ping (ms)</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $data->ping }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ round($data->ping, 2) }}</td>
                             </tr>
                             <tr>
                                 <td class="whitespace-nowrap py-4 text-sm font-medium text-gray-900">Server URL</td>
