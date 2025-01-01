@@ -15,7 +15,9 @@
             Internet Speed Report
           </a>
        </h1>
+       <!--
        <x-button> SpeedTest Run </x-button>
+       -->
     </header>
     <main>
         {{$slot}}
