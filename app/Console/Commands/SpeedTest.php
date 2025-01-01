@@ -47,7 +47,7 @@ class SpeedTest extends Command
             return 1;
         }
 
-        $name = $result['client']['isp'] . '-' . $result['server']['name'] . '-' . $result['server']['country'];
+        $name = $result['client']['isp'] . '-' . $result['server']['name'] . '-' . $result['server']['id'];
 
         Data::create([
             'name' => $name,

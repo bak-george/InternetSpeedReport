@@ -12,7 +12,7 @@
     <header class="mx-auto max-w-7xl sm:px-6 lg:px-8">
        <h1 class="text-center text-4xl ubuntu-regular pt-5">
           <a href="{{url('/')}}" class="drop-shadow-2xl">
-            Internet Test Speed
+            Internet Speed Report
           </a>
        </h1>
        <x-button> SpeedTest Run </x-button>
