@@ -1,21 +1,23 @@
 @props(['data'])
 
 @php
-    $labels = $data->pluck('created_at')
-                   ->map(fn($date) => $date->format('Y-m-d H:i'))
-                   ->toArray();
+    $sortedData = $data->sortBy('created_at');
 
-    $downloads = $data->pluck('download')
-                      ->map(fn($value) => round($value / (1024 * 1024), 2))
-                      ->toArray();
+    $labels = $sortedData->pluck('created_at')
+                         ->map(fn($date) => $date->format('Y-m-d H:i'))
+                         ->toArray();
 
-    $uploads = $data->pluck('upload')
-                    ->map(fn($value) => round($value / (1024 * 1024), 2))
-                    ->toArray();
+    $downloads = $sortedData->pluck('download')
+                            ->map(fn($value) => round($value / (1024 * 1024), 2))
+                            ->toArray();
 
-    $pings = $data->pluck('ping')
-                  ->map(fn($value) => round($value, 2))
-                  ->toArray();
+    $uploads = $sortedData->pluck('upload')
+                          ->map(fn($value) => round($value / (1024 * 1024), 2))
+                          ->toArray();
+
+    $pings = $sortedData->pluck('ping')
+                        ->map(fn($value) => round($value, 2))
+                        ->toArray();
 @endphp
 
 <div class="mt-5 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -81,7 +83,6 @@
                                     displayColors: false,
                                     callbacks: {
                                         label: function (point) {
-                                            // Adjust tooltip to handle different datasets (Download, Upload, Ping)
                                             if (point.dataset.label === 'Ping (ms)') {
                                                 return `${point.dataset.label}: ${point.raw} ms`;
                                             } else {

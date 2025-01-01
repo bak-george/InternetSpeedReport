@@ -9,7 +9,7 @@ class DataController extends Controller
 {
     public function index()
     {
-        $data = Data::all();
+        $data = Data::orderBy('created_at', 'desc')->get();        ;
 
         return view('results.index')->with('data', $data);
     }

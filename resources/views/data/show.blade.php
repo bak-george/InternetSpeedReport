@@ -6,7 +6,7 @@
             </div>
             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none text-center">
                 <x-button :route="'delete'" :data="$data">
-                    Delete data
+                    Delete Data
                 </x-button>
             </div>
         </div>
