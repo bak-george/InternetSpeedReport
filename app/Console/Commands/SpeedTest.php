@@ -28,48 +28,61 @@ class SpeedTest extends Command
      */
     public function handle()
     {
-        $process = new Process(['speedtest', '--json', '--secure']);
+        set_time_limit(120);
+        $speedtestPath = env('SPEEDTEST_PATH', 'speedtest');
 
-        $process->run();
+        $process = new Process([$speedtestPath, '--json', '--secure']);
 
-        if (! $process->isSuccessful()) {
-            $this->error('Speedtest Command failed.');
+        try {
+            $process->run();
 
+            if (!$process->isSuccessful()) {
+                $errorOutput = $process->getErrorOutput() ?: 'Unknown error occurred.';
+                $this->error('Speedtest Command failed: ' . $errorOutput);
+                Log::error('Speedtest Command failed.', ['error' => $errorOutput]);
+                return 1;
+            }
+
+            $output = $process->getOutput();
+            $result = json_decode($output, true);
+
+            if (!$result) {
+                $this->error('Invalid JSON output from Speedtest.');
+                Log::error('Speedtest failed: Invalid JSON.', [
+                    'output' => $output,
+                    'error' => json_last_error_msg()
+                ]);
+                return 1;
+            }
+
+            $name = $result['client']['isp'] . '-' . $result['server']['name'] . '-' . $result['server']['id'] . '-' . fake()->word;
+
+            Data::create([
+                'name' => $name,
+                'download' => $result['download'],
+                'upload' => $result['upload'],
+                'ping' => $result['ping'],
+                'server_lat' => $result['server']['lat'],
+                'server_lon' => $result['server']['lon'],
+                'server_name' => $result['server']['name'],
+                'server_country' => $result['server']['country'],
+                'server_id' => $result['server']['id'],
+                'server_latency' => $result['server']['latency'],
+                'timestamp' => $result['timestamp'],
+                'bytes_sent' => $result['bytes_sent'],
+                'bytes_received' => $result['bytes_received'],
+                'client_ip' => $result['client']['ip'],
+                'client_lat' => $result['client']['lat'],
+                'client_lon' => $result['client']['lon'],
+                'client_isp' => $result['client']['isp'],
+                'client_country' => $result['client']['country'],
+            ]);
+
+            return 0;
+        } catch (\Exception $e) {
+            $this->error('An unexpected error occurred: ' . $e->getMessage());
+            Log::error('Speedtest Command Exception:', ['exception' => $e]);
             return 1;
         }
-
-        $output = $process->getOutput();
-        $result = json_decode($output, true);
-
-        if (!$result) {
-            $this->error('Invalid JSON output from Speedtest.');
-            Log::error('Speedtest JSON error: ' . json_last_error_msg());
-            return 1;
-        }
-
-        $name = $result['client']['isp'] . '-' . $result['server']['name'] . '-' . $result['server']['id'] . '-' . fake()->word;
-
-        Data::create([
-            'name' => $name,
-            'download' => $result['download'],
-            'upload' => $result['upload'],
-            'ping' => $result['ping'],
-            'server_lat' => $result['server']['lat'],
-            'server_lon' => $result['server']['lon'],
-            'server_name' => $result['server']['name'],
-            'server_country' => $result['server']['country'],
-            'server_id' => $result['server']['id'],
-            'server_latency' => $result['server']['latency'],
-            'timestamp' => $result['timestamp'],
-            'bytes_sent' => $result['bytes_sent'],
-            'bytes_received' => $result['bytes_received'],
-            'client_ip' => $result['client']['ip'],
-            'client_lat' => $result['client']['lat'],
-            'client_lon' => $result['client']['lon'],
-            'client_isp' => $result['client']['isp'],
-            'client_country' => $result['client']['country'],
-        ]);
-
-        return 0;
     }
 }

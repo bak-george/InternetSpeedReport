@@ -14,10 +14,8 @@
           <a href="{{url('/')}}" class="drop-shadow-2xl">
             Internet Speed Report
           </a>
-       </h1>
-       <!--
-       <x-button> SpeedTest Run </x-button>
-       -->
+        </h1>
+       <x-button :route="'run-speedtest'"> SpeedTest Run </x-button>
     </header>
     <main>
         {{$slot}}
