@@ -47,7 +47,7 @@ class SpeedTest extends Command
             return 1;
         }
 
-        $name = $result['client']['isp'] . '-' . $result['server']['name'] . '-' . $result['server']['id'];
+        $name = $result['client']['isp'] . '-' . $result['server']['name'] . '-' . $result['server']['id'] . '-' . fake()->word;
 
         Data::create([
             'name' => $name,
