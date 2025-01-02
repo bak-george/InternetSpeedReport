@@ -17,4 +17,11 @@ This is a Laravel updated version to its predecessor [WebSpeedReport](https://gi
 - Setting a cron from the UI.
 
 ## How to Install
-Download the free version of [Herd](https://herd.laravel.com)
+- Download the free version of [Herd](https://herd.laravel.com) and clone the repository within your Herd directory.
+- Don't forget to run ```composer install``` once you cd inside your project and ```npm run dev``` to build the UI assets.
+
+## How to Use
+cd into the project and run ```php artisan speedtest:run```.
+
+## How to get the most out of this
+I am working on this on a daily basis, so don't forge to ```git pull``` once in a while to get new stuff.
