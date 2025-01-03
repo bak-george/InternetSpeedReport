@@ -9,37 +9,17 @@
                     </x-button>
                 </div>
             </div>
-            <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-                <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-                    <dt class="truncate ubuntu-bold text-gray-500">Download Speed (Mbps)</dt>
-                    <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ round($data->download / (1024 * 1024), 2) }}</dd>
-                </div>
-                <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-                    <dt class="truncate ubuntu-bold text-gray-500">Upload Speed (Mbps)</dt>
-                    <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ round($data->upload / (1024 * 1024), 2) }}</dd>
-                </div>
-                <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-                    <dt class="truncate ubuntu-bold text-gray-500">Ping (Server Latency)</dt>
-                    <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ round($data->ping, 2) }}</dd>
-                </div>
-            </dl>
-            <h4 class="ubuntu-regular text-gray-900 text-left text-xl mt-5">Server Country: {{ $data->server_country }} / Server id: {{ $data->server_id }} </h4>
+            <x-three-stat-card :firstLabel="'Download Speed (Mbps)'" :firstData="round($data->download / (1024 * 1024), 2)"
+                               :secondLabel="'Upload Speed (Mbps)'" :secondData="round($data->upload / (1024 * 1024), 2)"
+                               :thirdLabel="'Ping (Server Latency)'" :thirdData="round($data->ping, 2)"
+            />
+            <h4 class="ubuntu-regular text-gray-900 text-lefDownload Speed (Mbps)t text-xl mt-5">Server Country: {{ $data->server_country }} / Server id: {{ $data->server_id }} </h4>
             <x-server-map :mapId="'server_info'" :serverLatitude="$data->server_lat" :serverLongitude="$data->server_lon" />
         </div>
-        <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-            <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-                <dt class="truncate ubuntu-bold text-gray-500">IP Address</dt>
-                <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ $data->client_ip }}</dd>
-            </div>
-            <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-                <dt class="truncate ubuntu-bold text-gray-500">ISP</dt>
-                <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ $data->client_isp }}</dd>
-            </div>
-            <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-                <dt class="truncate ubuntu-bold text-gray-500">Client Country</dt>
-                <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ $data->client_country }}</dd>
-            </div>
-        </dl>
+        <x-three-stat-card :firstLabel="'IP Address'" :firstData="$data->client_ip"
+                           :secondLabel="'ISP'" :secondData="$data->client_ip"
+                           :thirdLabel="'Client Country'" :thirdData="$data->client_country"
+        />
         <h4 class="ubuntu-regular text-gray-900 text-left text-xl mt-5">Client Location</h4>
         <x-server-map :mapId="'client_info'" :serverLatitude="$data->client_lat" :serverLongitude="$data->client_lon" />
     </div>
