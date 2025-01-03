@@ -17,7 +17,7 @@
             <x-server-map :mapId="'server_info'" :serverLatitude="$data->server_lat" :serverLongitude="$data->server_lon" />
         </div>
         <x-three-stat-card :firstLabel="'IP Address'" :firstData="$data->client_ip"
-                           :secondLabel="'ISP'" :secondData="$data->client_ip"
+                           :secondLabel="'ISP'" :secondData="$data->client_isp"
                            :thirdLabel="'Client Country'" :thirdData="$data->client_country"
         />
         <h4 class="ubuntu-regular text-gray-900 text-left text-xl mt-5">Client Location</h4>
