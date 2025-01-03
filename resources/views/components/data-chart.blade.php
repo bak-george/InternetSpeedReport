@@ -76,10 +76,10 @@
                             interaction: { intersect: false },
                             onClick: (event, elements) => {
                                 if (elements.length > 0) {
-                                    const index = elements[0].index; // Get the index of the clicked point
-                                    const route = this.routes[index]; // Get the corresponding route
+                                    const index = elements[0].index;
+                                    const route = this.routes[index];
                                     if (route) {
-                                        window.location.href = route; // Redirect to the route
+                                        window.location.href = route;
                                     }
                                 }
                             },
