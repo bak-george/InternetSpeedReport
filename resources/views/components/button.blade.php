@@ -26,7 +26,7 @@
     >
         @if ($route === 'run-speedtest')
             <span x-show="!isLoading">Run Speed Test</span>
-            <span x-show="isLoading">Running... this may take a while</span>
+            <span x-cloak x-show="isLoading">Running... this may take a while</span>
         @else
             {{ $slot }}
         @endif

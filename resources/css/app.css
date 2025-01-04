@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] { display: none !important; }
+
 .ubuntu-light {
     font-family: "Ubuntu", serif;
     font-weight: 300;
