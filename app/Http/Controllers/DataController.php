@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Data;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+
 
 class DataController extends Controller
 {
