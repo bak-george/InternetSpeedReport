@@ -9,12 +9,12 @@
                   <table class="min-w-full divide-y-2 divide-gray">
                     <thead>
                       <tr>
-                        <th scope="col" class="ubuntu-regular text-base py-3.5 pl-4 pr-3 text-center text-black sm:pl-3">Name</th>
-                        <th scope="col" class="ubuntu-regular text-base py-3.5 pl-4 pr-3 text-center text-black sm:pl-3">Date</th>
-                        <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Download (Mbps)</th>
-                        <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Upload (Mbps)</th>
-                        <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Ping</th>
-                        <th scope="col" class="ubuntu-regular text-base px-3 py-3.5 text-center text-black">Country - Server</th>
+                        <th scope="col" class="table-header sm:pl-3">Name</th>
+                        <th scope="col" class="table-header sm:pl-3">Date</th>
+                        <th scope="col" class="table-header">Download (Mbps)</th>
+                        <th scope="col" class="table-header">Upload (Mbps)</th>
+                        <th scope="col" class="table-header">Ping</th>
+                        <th scope="col" class="table-header">Country - Server</th>
                         <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-3">
                             <span class="sr-only">Show More</span>
                         </th>

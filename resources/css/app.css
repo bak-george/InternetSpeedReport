@@ -7,46 +7,54 @@
     font-family: "Ubuntu", serif;
     font-weight: 300;
     font-style: normal;
-  }
+}
 
-  .ubuntu-regular {
+.ubuntu-regular {
     font-family: "Ubuntu", serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
-  .ubuntu-medium {
+.ubuntu-medium {
     font-family: "Ubuntu", serif;
     font-weight: 500;
     font-style: normal;
-  }
+}
 
-  .ubuntu-bold {
+.ubuntu-bold {
     font-family: "Ubuntu", serif;
     font-weight: 700;
     font-style: normal;
-  }
+}
 
-  .ubuntu-light-italic {
+.ubuntu-light-italic {
     font-family: "Ubuntu", serif;
     font-weight: 300;
     font-style: italic;
-  }
+}
 
-  .ubuntu-regular-italic {
+.ubuntu-regular-italic {
     font-family: "Ubuntu", serif;
     font-weight: 400;
     font-style: italic;
-  }
+}
 
-  .ubuntu-medium-italic {
+.ubuntu-medium-italic {
     font-family: "Ubuntu", serif;
     font-weight: 500;
     font-style: italic;
-  }
+}
 
-  .ubuntu-bold-italic {
+.ubuntu-bold-italic {
     font-family: "Ubuntu", serif;
     font-weight: 700;
     font-style: italic;
-  }
+}
+
+.table-header {
+    @apply ubuntu-bold text-base py-3.5 pl-4 pr-3 text-center text-black;
+}
+
+.table-data-rows {
+    @apply ubuntu-regular text-sm whitespace-nowrap py-4 pl-4 pr-3 text-center text-gray-500;
+}

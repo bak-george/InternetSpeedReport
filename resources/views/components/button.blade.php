@@ -15,11 +15,11 @@
     @endif
     <button
         type="submit"
-        class="ubuntu-medium rounded-md px-3.5 py-2.5
-               text-sm text-white shadow-sm
+        class="ubuntu-medium rounded-lg px-3.5 py-2.5
+               text-sm text-white shadow-lg
                focus-visible:outline focus-visible:outline-2
                focus-visible:outline-offset-2 focus-visible:outline-indigo-500
-               {{ $route === 'delete' ? 'bg-red-500 hover:bg-gray-500' : 'bg-indigo-500 hover:bg-indigo-500'}}"
+               {{ $route === 'delete' ? 'bg-red-500 hover:bg-gray-500' : 'bg-indigo-500 hover:bg-orange-500'}}"
         @if ($route !== 'delete')
             @click="isLoading = true"
         @endif
