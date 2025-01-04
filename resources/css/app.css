@@ -58,3 +58,11 @@
 .table-data-rows {
     @apply ubuntu-regular text-sm whitespace-nowrap py-4 pl-4 pr-3 text-center text-gray-500;
 }
+
+.three-stat-header {
+   @apply truncate ubuntu-bold text-lg text-gray-500;
+}
+
+.three-stat-subheader {
+   @apply mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900;
+}

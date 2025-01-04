@@ -2,16 +2,16 @@
 <div>
     <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
         <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-            <dt class="truncate ubuntu-bold text-gray-500">{{ $firstLabel }}</dt>
-            <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ $firstData }}</dd>
+            <dt class="three-stat-header">{{ $firstLabel }}</dt>
+            <dd class="three-stat-subheader">{{ $firstData }}</dd>
         </div>
         <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-            <dt class="truncate ubuntu-bold text-gray-500">{{ $secondLabel }}</dt>
-            <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ $secondData }}</dd>
+            <dt class="three-stat-header">{{ $secondLabel }}</dt>
+            <dd class="three-stat-subheader">{{ $secondData }}</dd>
         </div>
         <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-            <dt class="truncate ubuntu-bold text-gray-500">{{ $thirdLabel }}</dt>
-            <dd class="mt-1 text-3xl tracking-tight ubuntu-regular text-gray-900">{{ $thirdData }}</dd>
+            <dt class="three-stat-header">{{ $thirdLabel }}</dt>
+            <dd class="three-stat-subheader">{{ $thirdData }}</dd>
         </div>
     </dl>
 </div>
