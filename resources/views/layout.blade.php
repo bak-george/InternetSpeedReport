@@ -10,11 +10,12 @@
 </head>
 <body class="bg-gray-200">
     <header class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-       <h1 class="text-center text-4xl ubuntu-regular pt-5">
-          <a href="{{url('/')}}" class="drop-shadow-2xl">
+      <h1 class="text-center text-4xl ubuntu-regular pt-5">
+          <a href="{{url('/')}}" class="drop-shadow-2xl text-gray-900">
             Internet Speed Report
           </a>
-        </h1>
+       </h1>
+       <!-- <x-navigation /> -->
        <x-button :route="'run-speedtest'"> SpeedTest Run </x-button>
        <x-environment-error />
     </header>
@@ -28,6 +29,7 @@
         @if(session('error'))
             <x-alert type="error" message="{{session('error')}}" />
         @endif
+        <x-footer />
     </footer>
 </body>
 </html>
