@@ -15,7 +15,7 @@
             Internet Speed Report
           </a>
        </h1>
-       <!-- <x-navigation /> -->
+       <x-navigation />
        <x-button :route="'run-speedtest'"> SpeedTest Run </x-button>
        <x-environment-error />
     </header>

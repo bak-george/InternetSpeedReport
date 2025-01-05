@@ -10,3 +10,7 @@ Route::get('/data/{data}', [DataController::class, 'show'])->name('data.show');
 Route::post('/run-speedtest', [DataController::class, 'runSpeedTest'])->name('run-speedtest');
 
 Route::delete('/data/{data}', [DataController::class, 'destroy'])->name('delete');
+
+Route::get('/api', function() {
+    return view('pages.api-generate');
+});

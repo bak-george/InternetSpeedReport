@@ -4,4 +4,4 @@
     @empty
         <li>No results available</li>
     @endforelse
-</x-layout
+</x-layout>
