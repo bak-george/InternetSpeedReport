@@ -11,7 +11,7 @@
 <body class="bg-gray-200">
     <header class="mx-auto max-w-7xl sm:px-6 lg:px-8">
       <h1 class="text-center text-4xl ubuntu-regular pt-5">
-          <a href="{{url('/')}}" class="drop-shadow-2xl text-gray-900">
+          <a href="{{url('/')}}" class="drop-shadow-2xl text-gray-900 hover:text-gray-900">
             Internet Speed Report
           </a>
        </h1>
