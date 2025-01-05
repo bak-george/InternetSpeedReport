@@ -13,7 +13,7 @@ This is a Laravel updated version to its predecessor [WebSpeedReport](https://gi
 - Button to execute the speedtest commands through the UI.
 
 ## Currently working on
-- Logs in the UI.
+- API
 - Setting a cron from the UI.
 
 ## How to Install
