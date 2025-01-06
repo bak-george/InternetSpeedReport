@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Filters\V1\DataFilter;
 use App\Models\Data;
 use Illuminate\Http\Request;
 
-class DataController extends Controller
+class DataController extends ApiController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(DataFilter $filters)
     {
-        //
+
     }
 
     /**
