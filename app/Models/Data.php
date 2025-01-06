@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Http\Filters\V1\DataFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Data extends Model
@@ -38,4 +40,9 @@ class Data extends Model
         'bytes_received' => 'integer',
         'timestamp' => 'datetime',
     ];
+
+    public function scopeFilter(Builder $builder, DataFilter $filters)
+    {
+        return $filters->apply($builder);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Filters\V1\DataFilter;
+use App\Http\Resources\V1\DataResource;
 use App\Models\Data;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class DataController extends ApiController
      */
     public function index(DataFilter $filters)
     {
-
+        return DataResource::collection(Data::filter($filters)->paginate());
     }
 
     /**
