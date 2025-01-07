@@ -58,3 +58,17 @@ Add your Free Mapbox API Key from [mapbox](https://www.mapbox.com/)
 ```
 MAPBOX_API_KEY="Your mapbox API key"
 ```
+### API
+#### Endpoint: Get Speed Test Data by ID
+**URL**:
+`http://internetspeedreport.test/api/v1/data/{id}`
+
+**Method**:
+`GET`
+
+---
+
+### Example Request
+
+```bash
+curl http://internetspeedreport.test/api/v1/data/12
