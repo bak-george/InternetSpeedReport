@@ -31,7 +31,7 @@ class DataController extends ApiController
      */
     public function show(Data $data)
     {
-        //
+        return new DataResource($data);
     }
 
     /**
