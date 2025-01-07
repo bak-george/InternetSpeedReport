@@ -8,11 +8,11 @@
                          ->toArray();
 
     $downloads = $sortedData->pluck('download')
-                            ->map(fn($value) => round($value / (1024 * 1024), 2))
+                            ->map(fn($value) => round($value, 2))
                             ->toArray();
 
     $uploads = $sortedData->pluck('upload')
-                          ->map(fn($value) => round($value / (1024 * 1024), 2))
+                          ->map(fn($value) => round($value, 2))
                           ->toArray();
 
     $pings = $sortedData->pluck('ping')

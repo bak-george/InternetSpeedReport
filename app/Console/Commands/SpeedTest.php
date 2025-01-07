@@ -57,10 +57,13 @@ class SpeedTest extends Command
 
             $name = ucfirst(fake()->words(3, true));
 
+            $downloadMbps = convertToMegabytes($result['download']);
+            $uploadMbps = convertToMegabytes($result['upload']);
+
             Data::create([
                 'name' => $name,
-                'download' => $result['download'],
-                'upload' => $result['upload'],
+                'download' => $downloadMbps,
+                'upload' => $uploadMbps,
                 'ping' => $result['ping'],
                 'server_lat' => $result['server']['lat'],
                 'server_lon' => $result['server']['lon'],

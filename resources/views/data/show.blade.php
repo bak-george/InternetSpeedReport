@@ -9,8 +9,8 @@
                     </x-button>
                 </div>
             </div>
-            <x-three-stat-card :firstLabel="'Download Speed (Mbps)'" :firstData="round($data->download / (1024 * 1024), 2)"
-                               :secondLabel="'Upload Speed (Mbps)'"  :secondData="round($data->upload / (1024 * 1024), 2)"
+            <x-three-stat-card :firstLabel="'Download Speed (Mbps)'" :firstData="round($data->download, 2)"
+                               :secondLabel="'Upload Speed (Mbps)'"  :secondData="round($data->upload, 2)"
                                :thirdLabel="'Ping (Server Latency)'" :thirdData="round($data->ping, 2)"
             />
             <h4 class="ubuntu-regular text-gray-900 text-lefDownload Speed (Mbps)t text-xl mt-5">Server Country: {{ $data->server_country }} / Server id: {{ $data->server_id }} </h4>
