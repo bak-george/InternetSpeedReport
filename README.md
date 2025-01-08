@@ -11,6 +11,7 @@ This is a Laravel updated version to its predecessor [WebSpeedReport](https://gi
 - Graph and table with each point directing to the corresponding data and.
 - A show route for each data that dives deeper into the data.
 - Button to execute the speedtest commands through the UI.
+- API (GET requests and sorting)
 
 ## Currently working on
 - API
@@ -161,6 +162,17 @@ curl http://internetspeedreport.test/api/v1/data/
   }
 }
 
+```
+### Sorting
+- Sort results using the `sort` query parameter.
+- Use a field name  to sort in ascending order.
+- Prefix a field with `-` (e.g., `-field_name`) to sort in descending order.
+- Multiple fields can be sorted by separating them with commas (e.g., `sort=field1,-field2`).
+- Sortable values = name, createdAt, ping, download, upload
+
+### Example Request
+```
+http://internetspeedreport.test/api/v1/data?sort=name,-download
 ```
 
 ### Endpoint: Get Speed Test Data by ID

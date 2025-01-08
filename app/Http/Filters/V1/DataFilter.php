@@ -7,7 +7,9 @@ class DataFilter extends QueryFilter
     protected $sortable = [
         'name',
         'createdAt' => 'created_at',
-        'updateAt'  => 'updated_at'
+        'ping',
+        'download',
+        'upload'
     ];
 
     public function createdAt($value)
