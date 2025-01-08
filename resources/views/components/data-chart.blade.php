@@ -25,7 +25,7 @@
 
 @endphp
 
-<div class="mt-5 mx-auto max-w-7xl sm:px-6 lg:px-8 h-[600px]">
+<div class="mt-5 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script>
         document.addEventListener('alpine:init', () => {
