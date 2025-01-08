@@ -156,8 +156,8 @@ curl http://internetspeedreport.test/api/v1/data/
     ],
     "path": "http://internetspeedreport.test/api/v1/data",
     "per_page": 15,
-    "to": 4,
-    "total": 4
+    "to": 2,
+    "total": 2
   }
 }
 ```
