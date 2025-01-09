@@ -60,8 +60,23 @@ Add your Free Mapbox API Key from [mapbox](https://www.mapbox.com/)
 MAPBOX_API_KEY="Your mapbox API key"
 ```
 ## API
-### Endpoint: Get All Speed Test Records
+### Endpoint: Run Speed Test
+**URL**:
+`http://internetspeedreport.test/api/v1/data/`
 
+**Method**:
+`POST`
+
+### Example Request
+
+```bash
+curl http://internetspeedreport.test/api/v1/data/
+```
+### Example Response
+{
+    "message": "New Data created"
+}
+### Endpoint: Get All Speed Test Records
 **URL**:
 `http://internetspeedreport.test/api/v1/data/`
 
@@ -75,7 +90,7 @@ MAPBOX_API_KEY="Your mapbox API key"
 ```bash
 curl http://internetspeedreport.test/api/v1/data/
 ```
-
+### Example Response
 ```
 {
   "data": [
@@ -218,5 +233,26 @@ curl http://internetspeedreport.test/api/v1/data/12
     "client_isp": "ExampleISP",
     "client_country": "US"
   }
+}
+```
+### Endpoint: Delete Speed Test Data by ID
+**URL**:
+`http://internetspeedreport.test/api/v1/data/{id}`
+
+**Method**:
+`DELETE`
+
+---
+
+### Example Request
+
+```bash
+curl http://internetspeedreport.test/api/v1/data/12
+```
+
+### Example response
+```bash
+{
+    "message": "Resource deleted successfully."
 }
 ```
