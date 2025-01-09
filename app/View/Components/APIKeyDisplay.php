@@ -17,7 +17,7 @@ class APIKeyDisplay extends Component
     public function __construct()
     {
         try {
-            $user = User::first();
+            $user = User::where('name', 'Mr.TokerBringer')->first();
 
             if (!$user || !$user->email || !$user->password) {
                 $this->apiKey = 'No valid user found in the database. Run php artisan db:seed to generate a user.';
