@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
 function checkEnvVariables(): array
 {
     $isMapboxApiKeyEmpty = empty(env('MAPBOX_API_KEY'));

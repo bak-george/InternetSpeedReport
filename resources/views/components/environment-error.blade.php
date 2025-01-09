@@ -3,8 +3,23 @@
     $result = checkEnvVariables();
     $mapBoxExists = !$result['isMapboxApiKeyEmpty'];
     $speedPathExists = !$result['isSpeedtestPathEmpty'];
+    $userCount = \App\Models\User::count();
+    $msg = '';
+
+    if (!$mapBoxExists) {
+        $msg .= 'MAPBOX_API_KEY .env variable is empty. ';
+    }
+
+    if (!$speedPathExists) {
+        $msg .= 'SPEEDTEST_PATH .env variable is empty. ';
+    }
+
+    if ($userCount === 0) {
+        $msg .= 'Run php artisan db:seed to get the user for generating API tokens';
+    }
+
 @endphp
-@if (!$mapBoxExists || !$speedPathExists)
+@if ($msg != '')
 <div>
     <div class="mt-5 rounded-lg bg-red-500 p-4">
         <div class="flex">
@@ -14,15 +29,10 @@
             </svg>
             </div>
             <div class="ml-3">
-            <h3 class="ubuntu-bold text-white">.ENV variables missing</h3>
+            <h3 class="ubuntu-bold text-white">Warning</h3>
             <div class="mt-2 ubuntu-regular text-white">
                 <p>
-                    @if (!$mapBoxExists)
-                        MAPBOX_API_KEY .env variable is empty<br>
-                    @endif
-                    @if (!$speedPathExists)
-                        SPEEDTEST_PATH .env variable is empty
-                    @endif
+                    {{ $msg }}
                 </p>
             </div>
          </div>
