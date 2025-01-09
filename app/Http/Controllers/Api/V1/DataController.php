@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Filters\V1\DataFilter;
 use App\Http\Resources\V1\DataResource;
 use App\Models\Data;
@@ -23,7 +23,17 @@ class DataController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $exitCode = Artisan::call('speedtest:run');
+
+            if ($exitCode === 0) {
+                return response()->json(['message' => 'New Data created'], 200);
+            } else {
+                return response()->json(['message' => 'Speedtest command failed'], 400);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'An error occurred', 'error' => $e->getMessage()], 500);
+        }
     }
 
     /**

@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return response()->json(['msg' => 'Your message here']);
+    return response()->json(['message' => 'Welcome to the API!']);
 });
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return response()->json($request->user());
+    });
 
-Route::middleware('auth:sanctum')->apiResource('data', DataController::class)->except([
-    'create', 'edit'
-]);
+    Route::apiResource('data', DataController::class)->except(['edit']);
+});
