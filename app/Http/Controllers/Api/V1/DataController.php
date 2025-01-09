@@ -47,6 +47,8 @@ class DataController extends ApiController
      */
     public function destroy(Data $data)
     {
-        //
+        $data->delete();
+
+        return response()->json(['message' => 'Resource deleted successfully.'], 200);
     }
 }

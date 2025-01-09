@@ -15,4 +15,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::middleware('auth:sanctum')->apiResource('data', DataController::class);
+Route::middleware('auth:sanctum')->apiResource('data', DataController::class)->except([
+    'create', 'edit'
+]);
