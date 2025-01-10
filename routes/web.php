@@ -14,3 +14,7 @@ Route::delete('/data/{data}', [DataController::class, 'destroy'])->name('delete'
 Route::get('/api', function() {
     return view('pages.api-generate');
 });
+
+Route::get('/profile/{user}', function() {
+    return view('pages.profile');
+});

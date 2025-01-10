@@ -4,18 +4,32 @@
     $mapBoxExists = !$result['isMapboxApiKeyEmpty'];
     $speedPathExists = !$result['isSpeedtestPathEmpty'];
     $userCount = \App\Models\User::count();
+    $checkAppVersion = checkAppVersion('1.2');
+
     $msg = '';
 
     $conditions = [
-        ['condition' => $mapBoxExists, 'error' => 'MAPBOX_API_KEY .env variable is empty.'],
-        ['condition' => $speedPathExists, 'error' => 'SPEEDTEST_PATH .env variable is empty.'],
-        ['condition' => $userCount > 0, 'error' => 'Run php artisan db:seed to get the user for generating API tokens']
+        [
+            'condition' => $mapBoxExists,
+            'error' => 'MAPBOX_API_KEY .env variable is empty.'
+        ],
+        [
+            'condition' => $speedPathExists,
+            'error' => 'SPEEDTEST_PATH .env variable is empty.'
+        ],
+        [
+            'condition' => $userCount > 0,
+            'error' => 'Run php artisan db:seed to get the user for generating API tokens.'
+        ],
+        [
+            'condition' => $checkAppVersion,
+            'error' => 'You are runing an older version of InternetSpeedReport. Git pull to update the project.'
+        ]
     ];
 
     foreach ($conditions as $check) {
         appendMessageIfFalse($msg, $check['condition'], $check['error']);
     }
-
 @endphp
 @if ($msg != '')
 <div>

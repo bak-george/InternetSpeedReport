@@ -2,7 +2,7 @@
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
-        -token) BEARER_TOKEN="$2"; shift ;; # Capture the token value
+        -token) BEARER_TOKEN="$2"; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift

@@ -16,7 +16,17 @@
           </a>
        </h1>
        <x-navigation />
-       <x-button :route="'run-speedtest'"> SpeedTest Run </x-button>
+       <div class="flex justify-between">
+            <x-button :route="'run-speedtest'"> SpeedTest Run </x-button>
+            <p class="ubuntu-regular text-sm text-gray-900 text-center mt-2">
+            @php
+                $loggedInUser = loginTokenUser('tokenBearer@token.api', true);
+            @endphp
+            @if ($loggedInUser)
+                hi, <a class="text-gray-900" href="{{url('/profile/' . $loggedInUser->id)}}"> {{ $loggedInUser->name; }}</a>
+            @endif
+            </p>
+       </div>
        <x-environment-error />
     </header>
     <main>
