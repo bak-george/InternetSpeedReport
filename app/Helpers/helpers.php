@@ -17,3 +17,10 @@ function convertToMegabytes(float $value): float
 {
     return $value / (1024 * 1024);
 }
+
+function appendMessageIfFalse(&$msg, $condition, $errorMessage)
+{
+    if (!$condition) {
+        $msg .= $errorMessage . ' ';
+    }
+}
