@@ -73,17 +73,18 @@ MAPBOX_API_KEY="Your mapbox API key"
 curl http://internetspeedreport.test/api/v1/data/
 ```
 ### Example Response
+```
 {
     "message": "New Data created"
 }
+```
+---
 ### Endpoint: Get All Speed Test Records
 **URL**:
 `http://internetspeedreport.test/api/v1/data/`
 
 **Method**:
 `GET`
-
----
 
 ### Example Request
 
@@ -189,15 +190,13 @@ curl http://internetspeedreport.test/api/v1/data/
 ```
 http://internetspeedreport.test/api/v1/data?sort=name,-download
 ```
-
+---
 ### Endpoint: Get Speed Test Data by ID
 **URL**:
 `http://internetspeedreport.test/api/v1/data/{id}`
 
 **Method**:
 `GET`
-
----
 
 ### Example Request
 
@@ -234,6 +233,7 @@ curl http://internetspeedreport.test/api/v1/data/12
     "client_country": "US"
   }
 }
+---
 ```
 ### Endpoint: Delete Speed Test Data by ID
 **URL**:
@@ -241,8 +241,6 @@ curl http://internetspeedreport.test/api/v1/data/12
 
 **Method**:
 `DELETE`
-
----
 
 ### Example Request
 
