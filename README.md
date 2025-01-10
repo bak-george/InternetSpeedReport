@@ -233,8 +233,8 @@ curl http://internetspeedreport.test/api/v1/data/12
     "client_country": "US"
   }
 }
----
 ```
+---
 ### Endpoint: Delete Speed Test Data by ID
 **URL**:
 `http://internetspeedreport.test/api/v1/data/{id}`
