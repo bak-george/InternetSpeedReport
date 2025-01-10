@@ -6,8 +6,6 @@
     $userCount = \App\Models\User::count();
     $msg = '';
 
-    $msg = '';
-
     $conditions = [
         ['condition' => $mapBoxExists, 'error' => 'MAPBOX_API_KEY .env variable is empty.'],
         ['condition' => $speedPathExists, 'error' => 'SPEEDTEST_PATH .env variable is empty.'],
