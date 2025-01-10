@@ -65,6 +65,7 @@ class SpeedTest extends Command
                 'download' => $downloadMbps,
                 'upload' => $uploadMbps,
                 'ping' => $result['ping'],
+                'server_url' => $result['server']['url'],
                 'server_lat' => $result['server']['lat'],
                 'server_lon' => $result['server']['lon'],
                 'server_name' => $result['server']['name'],
