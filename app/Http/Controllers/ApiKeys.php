@@ -20,7 +20,7 @@ class ApiKeys extends Controller
         return view('pages.api-display', ['userTokens' => $userTokens]);
     }
 
-    public function deleteToken(Request $request, $tokenId)
+    public function deleteToken($tokenId)
     {
         $token = PersonalAccessToken::find($tokenId);
 

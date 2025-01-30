@@ -17,7 +17,22 @@
                             @foreach ($userTokens as $userToken)
                             <tr class="even:bg-gray-50 hover:bg-gray-200">
                                 <td class="table-data-rows sm:pl-3">{{ $userToken->id }}</td>
-                                <td class="table-data-rows sm:pl-3 cursor-pointer">{{ $userToken->token }}</td>
+                                <td class="table-data-rows sm:pl-3">{{ $userToken->token }}</td>
+                                <td class="table-data-rows sm:pl-3 cursor-pointer">
+                                    <form method="POST" action="{{route('token.delete', $userToken->id)}}"
+                                        onsubmit="return confirm('Are you sure you want to delete this project')"
+                                        class="hover:bg-red-600"
+                                        >
+                                        @csrf
+                                        @method('DELETE')
+                                        <button
+                                          type="submit"
+                                          class="block px-3 py-1 text-sm leading-6 text-black text-gray-900 rounded text-sm hover:text-white"
+                                        >
+                                            Delete
+                                        </button>
+                                      </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

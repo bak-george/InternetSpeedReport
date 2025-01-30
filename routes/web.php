@@ -12,11 +12,8 @@ Route::post('/run-speedtest', [DataController::class, 'runSpeedTest'])->name('ru
 
 Route::delete('/data/{data}', [DataController::class, 'destroy'])->name('delete');
 
-Route::get('/api', function() {
-    return view('pages.api-display');
-});
-
 Route::get('/api', [ApiKeys::class, 'index'])->name('api');
+Route::delete('/token/{token}', [ApiKeys::class, 'deleteToken'])->name('token.delete');
 
 Route::get('/profile/{user}', function() {
     return view('pages.profile');
