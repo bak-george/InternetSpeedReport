@@ -1,6 +1,5 @@
 <x-layout>
     <section class="mt-5 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <x-api-key-display />
         <section class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="px-4 sm:px-6 lg:px-8 rounded-lg shadow-2xl bg-white">
                 <div class="mt-8 flow-root">

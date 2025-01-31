@@ -1,4 +1,4 @@
-@props(['route' => 'speedtest', 'data'])
+@props(['route' => 'run-speedtest', 'data'])
 
 <form method="POST"
       @if ($route === 'delete')
@@ -27,6 +27,9 @@
         @if ($route === 'run-speedtest')
             <span x-show="!isLoading">Run Speed Test</span>
             <span x-cloak x-show="isLoading">Running... this may take a while</span>
+        @elseif ($route === 'generate.token')
+            <span x-show="!isLoading">Generate Token</span>
+            <span x-cloak x-show="isLoading">Generating...</span>
         @else
             {{ $slot }}
         @endif

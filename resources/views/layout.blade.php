@@ -17,7 +17,10 @@
        </h1>
        <x-navigation />
        <div class="flex justify-between">
-            <x-button :route="'run-speedtest'"> SpeedTest Run </x-button>
+            <x-button> SpeedTest Run </x-button>
+            @if (request()->is('api'))
+                <x-button :route="'generate.token'" />
+            @endif
             <p class="ubuntu-regular text-sm text-gray-900 text-center mt-2">
             @php
                 $loggedInUser = loginTokenUser('tokenBearer@token.api', true);
