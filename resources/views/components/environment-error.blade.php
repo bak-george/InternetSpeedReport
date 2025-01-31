@@ -4,7 +4,7 @@
     $mapBoxExists = !$result['isMapboxApiKeyEmpty'];
     $speedPathExists = !$result['isSpeedtestPathEmpty'];
     $userCount = \App\Models\User::count();
-    $checkAppVersion = checkAppVersion('1.2');
+    $checkAppVersion = checkAppVersion('1.2.1');
 
     $msg = '';
 
