@@ -16,7 +16,8 @@ class ApiKeysController extends Controller
 
         $userTokens = DB::table('personal_access_tokens')
                          ->where('tokenable_id', $user->id)
-                         ->get();
+                         ->get()
+                         ->values();
 
         return view('pages.api-display', ['userTokens' => $userTokens]);
     }
@@ -28,7 +29,7 @@ class ApiKeysController extends Controller
         $email = $user->email;
         $password = 'password';
 
-        $response = Http::post('http://internetspeedreport.test/api/v1/login', [
+        Http::post('http://internetspeedreport.test/api/v1/login', [
             'email' => $email,
             'password' => $password,
         ]);
