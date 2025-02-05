@@ -1,4 +1,7 @@
 # Internet Speed Report
+
+[DEMO](https://internetspeedreport-main-fcstuy.laravel.cloud)
+
 An open source tool to get a more in-depth look at your internet data.
 It utilises [Speedtest CLI](https://github.com/sivel/speedtest-cli) and depicts your data in tables, graphs and charts.
 
