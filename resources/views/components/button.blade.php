@@ -1,5 +1,9 @@
 @props(['route' => 'run-speedtest', 'data'])
+@php
+    if (App::environment('demo')) {
 
+    }
+@endphp
 <form method="POST"
       @if ($route === 'delete')
          action="{{ route($route, $data->id) }}"

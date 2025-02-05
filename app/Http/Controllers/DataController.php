@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 
 
@@ -10,7 +11,7 @@ class DataController extends Controller
 {
     public function index()
     {
-        $data = Data::orderBy('created_at', 'desc')->get();
+        $data = Data::orderBy('created_at', 'asc')->get();
 
         return view('results.index')->with('data', $data);
     }
@@ -29,12 +30,16 @@ class DataController extends Controller
 
     public function runSpeedTest()
     {
-        Artisan::call('speedtest:run');
+        if (App::environment('demo')) {
+            Data::factory()->create();
+        } else {
+            Artisan::call('speedtest:run');
+        }
 
-        $data = Data::orderBy('created_at', 'desc')->first();
+        $data = Data::orderBy('created_at', 'asc')->first();
 
         session()->flash('success', 'Speedtest completed successfully!');
 
-        return view('data.show', compact('data'));
+        return view('data.show', ['data' => $data]);
     }
 }
