@@ -30,7 +30,7 @@ class DataController extends Controller
 
     public function runSpeedTest()
     {
-        if (App::environment('demo')) {
+        if (App::environment('production')) {
             Data::factory()->create();
         } else {
             Artisan::call('speedtest:run');
