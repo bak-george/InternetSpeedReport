@@ -19,3 +19,7 @@ Route::delete('/token/{token}', [ApiKeysController::class, 'deleteToken'])->name
 Route::get('/profile/{user}', function() {
     return view('pages.profile');
 });
+
+Route::get('/about', function() {
+    return view('pages.about');
+});
