@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FakeToken;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -29,7 +31,13 @@ class ApiKeysController extends Controller
         $email = $user->email;
         $password = 'password';
 
-        Http::post('http://internetspeedreport.test/api/v1/login', [
+        if (App::environment('production')) {
+            $url = 'https://internetspeedreport-main-fcstuy.laravel.cloud';
+        } else {
+            $url = 'http://internetspeedreport.test';
+        }
+
+        Http::post("{$url}/api/v1/login", [
             'email' => $email,
             'password' => $password,
         ]);
