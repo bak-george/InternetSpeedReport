@@ -33,7 +33,7 @@ class ApiKeysController extends Controller
 
         $countTokens = DB::table('personal_access_tokens')->count();
 
-        if (App::environment('local') && $countTokens > 5) {
+        if (App::environment('production') && $countTokens > 5) {
             return redirect()->route('api')->with('error', 'Demo: Max tokens reached');
         }
 
@@ -56,7 +56,7 @@ class ApiKeysController extends Controller
         $token = PersonalAccessToken::find($tokenId);
         $countTokens = DB::table('personal_access_tokens')->count();
 
-        if (App::environment('local') && $countTokens <= 2) {
+        if (App::environment('production') && $countTokens <= 2) {
             return redirect()->route('api')->with('error', 'Demo: Minimum tokens reached');
         } else {
             $token->delete();
