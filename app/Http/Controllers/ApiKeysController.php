@@ -37,11 +37,7 @@ class ApiKeysController extends Controller
             return redirect()->route('api')->with('error', 'Demo: Max tokens reached');
         }
 
-        if (App::environment('production')) {
-            $url = 'https://internetspeedreport-main-fcstuy.laravel.cloud';
-        } else {
-            $url = 'http://internetspeedreport.test';
-        }
+        $url = config('app.url');
 
         Http::post("{$url}/api/v1/login", [
             'email' => $email,
