@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Data;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 
 class DataController extends Controller
@@ -32,14 +33,27 @@ class DataController extends Controller
 
     public function runSpeedTest()
     {
-        if (App::environment('production')) {
+        $countTokens = DB::table('data')->count();
+        $isLocal = App::environment('local');
+        $canCreateData = App::environment('production') && $countTokens < 26;
+
+        $key = 'error';
+        $msg = 'Demo: Maximum Data Reached.';
+        $redirectPath = '/';
+
+        if ($canCreateData) {
             Data::factory()->create();
-        } else {
+        } elseif ($isLocal) {
             Artisan::call('speedtest:run');
         }
 
-        $data = Data::orderBy('created_at', 'desc')->first();
+        if ($canCreateData || $isLocal) {
+            $key = 'success';
+            $msg = 'Data created successfully!';
+            $data = Data::latest()->first();
+            $redirectPath = 'data/' . $data->id;
+        }
 
-        return redirect('data/' . $data->id)->with('success', 'Data created successfully!');
+        return redirect($redirectPath)->with($key, $msg);
     }
 }
