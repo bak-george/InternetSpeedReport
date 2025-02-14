@@ -11,9 +11,11 @@ class DataController extends Controller
 {
     public function index()
     {
+        $dataPaginated = Data::orderBy('created_at', 'desc')->paginate(10);
+
         $data = Data::orderBy('created_at', 'asc')->get();
 
-        return view('results.index')->with('data', $data);
+        return view('results.index', ['data' => $data, 'dataPaginated' => $dataPaginated]);
     }
 
     public function show(Data $data)

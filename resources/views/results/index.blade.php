@@ -21,7 +21,7 @@
                       </tr>
                     </thead>
                     <tbody class="bg-white">
-                        @foreach ($data as $row)
+                        @foreach ($dataPaginated as $row)
                             <x-data-row :row="$row" />
                         @endforeach
                     </tbody>
@@ -29,6 +29,9 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="mt-4">
+            {{ $dataPaginated->links('vendor.pagination.tailwind') }}
           </div>
     </section>
     @else
