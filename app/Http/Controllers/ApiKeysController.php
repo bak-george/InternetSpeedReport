@@ -45,7 +45,7 @@ class ApiKeysController extends Controller
         if (App::environment('production')) {
             $countTokens = DB::table('personal_access_tokens')->count();
 
-            if ($countTokens > 3) {
+            if ($countTokens > 5) {
                 $lastRow = DB::table('personal_access_tokens')
                                 ->orderBy('created_at', 'asc')
                                 ->first();
