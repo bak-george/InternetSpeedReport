@@ -42,14 +42,31 @@ class ApiKeysController extends Controller
             'password' => $password,
         ]);
 
+        if (App::environment('production')) {
+            $countTokens = DB::table('personal_access_tokens')->count();
+
+            if ($countTokens > 3) {
+                $lastRow = DB::table('personal_access_tokens')
+                                ->orderBy('created_at', 'asc')
+                                ->first();
+
+                $this->deleteToken($lastRow->id);
+            }
+        }
+
         return redirect()->route('api')->with('success', 'New token created');
     }
 
     public function deleteToken($tokenId)
     {
         $token = PersonalAccessToken::find($tokenId);
+        $countTokens = DB::table('personal_access_tokens')->count();
 
-        $token->delete();
+        if (App::environment('production') && $countTokens <= 3) {
+            return redirect()->route('api')->with('error', 'This is a demo, so let some keys here.');
+        } else {
+            $token->delete();
+        }
 
        return redirect()->route('api')->with('success', 'API Token deleted');
     }
