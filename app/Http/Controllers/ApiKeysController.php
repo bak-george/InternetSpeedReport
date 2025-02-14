@@ -31,6 +31,12 @@ class ApiKeysController extends Controller
         $email = $user->email;
         $password = 'password';
 
+        $countTokens = DB::table('personal_access_tokens')->count();
+
+        if (App::environment('local') && $countTokens > 5) {
+            return redirect()->route('api')->with('error', 'Demo: Max tokens reached');
+        }
+
         if (App::environment('production')) {
             $url = 'https://internetspeedreport-main-fcstuy.laravel.cloud';
         } else {
@@ -42,18 +48,6 @@ class ApiKeysController extends Controller
             'password' => $password,
         ]);
 
-        if (App::environment('production')) {
-            $countTokens = DB::table('personal_access_tokens')->count();
-
-            if ($countTokens > 5) {
-                $lastRow = DB::table('personal_access_tokens')
-                                ->orderBy('created_at', 'asc')
-                                ->first();
-
-                $this->deleteToken($lastRow->id);
-            }
-        }
-
         return redirect()->route('api')->with('success', 'New token created');
     }
 
@@ -62,8 +56,8 @@ class ApiKeysController extends Controller
         $token = PersonalAccessToken::find($tokenId);
         $countTokens = DB::table('personal_access_tokens')->count();
 
-        if (App::environment('production') && $countTokens <= 3) {
-            return redirect()->route('api')->with('error', 'This is a demo, so let some keys here.');
+        if (App::environment('local') && $countTokens <= 2) {
+            return redirect()->route('api')->with('error', 'Demo: Minimum tokens reached');
         } else {
             $token->delete();
         }
