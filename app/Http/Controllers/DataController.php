@@ -36,10 +36,10 @@ class DataController extends Controller
             Artisan::call('speedtest:run');
         }
 
-        $data = Data::orderBy('created_at', 'asc')->first();
+        $data = Data::orderBy('created_at', 'desc')->first();
 
         session()->flash('success', 'Speedtest completed successfully!');
 
-        return view('data.show', ['data' => $data]);
+        return redirect('data/' . $data->id);
     }
 }
