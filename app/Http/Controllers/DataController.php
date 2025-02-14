@@ -40,8 +40,6 @@ class DataController extends Controller
 
         $data = Data::orderBy('created_at', 'desc')->first();
 
-        session()->flash('success', 'Speedtest completed successfully!');
-
-        return redirect('data/' . $data->id);
+        return redirect('data/' . $data->id)->with('success', 'Data created successfully!');
     }
 }
