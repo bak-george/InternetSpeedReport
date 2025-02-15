@@ -85,10 +85,10 @@ class DataFactory extends Factory
     private function generateUniqueName()
     {
         do {
-            $name = 'Dummy data ' . $this->faker->biasedNumberBetween();
+            $name = 'Dummy data ' . $this->faker->randomNumber(5, true);
 
             $data = Data::where('name', $name)->get();
-        } while (isEmpty($data));
+        } while ($data->isNotEmpty());
 
         return $name;
     }
