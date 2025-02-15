@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Data;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
+
+use function PHPUnit\Framework\isEmpty;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Data>
@@ -45,7 +48,7 @@ class DataFactory extends Factory
         [$clientLatitude, $clientLongitude] = $this->getCoordinates();
 
         return [
-            'name' => 'Dummy data ' . $this->faker->biasedNumberBetween(),
+            'name' => $this->generateUniqueName(),
             'created_at' => $createdAt,
             'updated_at' => $createdAt->copy()->addMinutes(rand(1, 1440)),
             'download' => $this->faker->randomFloat(null, 100, 200),
@@ -77,5 +80,16 @@ class DataFactory extends Factory
         $longitude = $this->places[$randomIndex]['lon'];
 
         return [$latitude, $longitude];
+    }
+
+    private function generateUniqueName()
+    {
+        do {
+            $name = 'Dummy data ' . $this->faker->biasedNumberBetween();
+
+            $data = Data::where('name', $name)->get();
+        } while (isEmpty($data));
+
+        return $name;
     }
 }
