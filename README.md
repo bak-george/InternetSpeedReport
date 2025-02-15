@@ -7,7 +7,7 @@ It utilises [Speedtest CLI](https://github.com/sivel/speedtest-cli) and depicts 
 
 This is a Laravel updated version to its predecessor [WebSpeedReport](https://github.com/bak-george/WebSpeedReport).
 
-<img src="public/demo-img/demo-home-page.png">
+<img src="public/demo-img/homeDemoImage.png">
 <img src="public/demo-img/demo-data-show.png">
 
 ## Current Features
