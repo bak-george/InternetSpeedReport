@@ -52,7 +52,7 @@ class DataController extends Controller
             $msg = 'Data created successfully!';
             $data = Data::latest()->first();
             $redirectPath = 'data/' . $data->id;
-            Log::info('Demo Data Created with id:' . $data->id);
+            Log::info('Data Created with id:' . $data->id);
         }
 
         return redirect($redirectPath)->with($key, $msg);
