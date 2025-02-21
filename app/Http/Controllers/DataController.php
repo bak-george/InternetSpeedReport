@@ -6,7 +6,7 @@ use App\Models\Data;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 class DataController extends Controller
 {
@@ -52,6 +52,7 @@ class DataController extends Controller
             $msg = 'Data created successfully!';
             $data = Data::latest()->first();
             $redirectPath = 'data/' . $data->id;
+            Log::info('Demo Data Created with id:' . $data->id);
         }
 
         return redirect($redirectPath)->with($key, $msg);

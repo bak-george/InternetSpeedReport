@@ -9,9 +9,6 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-200">
-    @php
-        Log::info('This is a test log message', ['user_id' => 123]);
-    @endphp
     <header class="mx-auto max-w-7xl sm:px-6 lg:px-8">
       <h1 class="text-center text-4xl ubuntu-regular pt-5">
           <a href="{{url('/')}}" class="drop-shadow-2xl text-gray-900 hover:text-gray-900">
