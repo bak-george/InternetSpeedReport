@@ -35,6 +35,8 @@ class DataController extends Controller
     {
         $countTokens = DB::table('data')->count();
         $isLocal = App::environment('local');
+
+        //production env = demo env
         $canCreateData = App::environment('production') && $countTokens < 26;
 
         $key = 'error';
