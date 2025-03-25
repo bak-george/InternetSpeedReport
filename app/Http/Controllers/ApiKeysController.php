@@ -29,7 +29,6 @@ class ApiKeysController extends Controller
         $user = Auth::user();
 
         $email = $user->email;
-        $password = 'password';
 
         $countTokens = DB::table('personal_access_tokens')->count();
 
@@ -39,10 +38,7 @@ class ApiKeysController extends Controller
 
         $url = config('app.url');
 
-        Http::post("{$url}/api/v1/login", [
-            'email' => $email,
-            'password' => $password,
-        ]);
+        Http::post("{$url}/api/v1/login?email={$email}&password='password'");
 
         return redirect()->route('api')->with('success', 'New token created');
     }
