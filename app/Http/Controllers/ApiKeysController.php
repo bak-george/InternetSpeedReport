@@ -38,7 +38,14 @@ class ApiKeysController extends Controller
 
         $url = config('app.url');
 
-        Http::post("{$url}/api/v1/login?email={$email}&password='password'");
+        $data = Http::post("{$url}/api/v1/login", [
+            'email' => $email,
+            'password' => 'password'
+        ]);
+
+        $response = $data->json();
+
+        dd($response["data"]["token"]);
 
         return redirect()->route('api')->with('success', 'New token created');
     }
