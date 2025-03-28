@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Laravel\Sanctum\PersonalAccessToken;
+use Illuminate\Support\Str;
 
 class ApiKeysController extends Controller
 {
@@ -16,8 +17,8 @@ class ApiKeysController extends Controller
     {
         $user = Auth::user();
 
-        $userTokens = DB::table('personal_access_tokens')
-                         ->where('tokenable_id', $user->id)
+        $userTokens = DB::table('user_tokens')
+                         ->where('user_id', $user->id)
                          ->get()
                          ->values();
 
@@ -36,16 +37,24 @@ class ApiKeysController extends Controller
             return redirect()->route('api')->with('error', 'Demo: Max tokens reached');
         }
 
-        $url = config('app.url');
+        if (App::environment('production')) {
+            $token = 'demo_token' . Str::random(20);
+        } else {
+            $url = config('app.url');
 
-        $data = Http::post("{$url}/api/v1/login", [
-            'email' => $email,
-            'password' => 'password'
+            $data = Http::post("{$url}/api/v1/login", [
+                'email' => $email,
+                'password' => 'password'
+            ]);
+
+            $response = $data->json();
+            $token = $response['data']['token'];
+        }
+
+        DB::table('user_tokens')->insertGetId([
+            'user_id' => $user->id,
+            'token'   => $token
         ]);
-
-        $response = $data->json();
-
-        dd($response["data"]["token"]);
 
         return redirect()->route('api')->with('success', 'New token created');
     }
@@ -53,9 +62,9 @@ class ApiKeysController extends Controller
     public function deleteToken($tokenId)
     {
         $token = PersonalAccessToken::find($tokenId);
-        $countTokens = DB::table('personal_access_tokens')->count();
+        $countTokens = DB::table('user_tokens')->count();
 
-        if (App::environment('production') && $countTokens <= 2) {
+        if (App::environment('user_tokens') && $countTokens <= 2) {
             return redirect()->route('api')->with('error', 'Demo: Minimum tokens reached');
         } else {
             $token->delete();
