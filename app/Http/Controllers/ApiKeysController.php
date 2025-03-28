@@ -59,15 +59,14 @@ class ApiKeysController extends Controller
         return redirect()->route('api')->with('success', 'New token created');
     }
 
-    public function deleteToken($tokenId)
+    public function deleteToken($id)
     {
-        $token = PersonalAccessToken::find($tokenId);
         $countTokens = DB::table('user_tokens')->count();
 
         if (App::environment('user_tokens') && $countTokens <= 2) {
             return redirect()->route('api')->with('error', 'Demo: Minimum tokens reached');
         } else {
-            $token->delete();
+            DB::table('user_tokens')->where('id', '=', $id)->delete();
         }
 
        return redirect()->route('api')->with('success', 'API Token deleted');

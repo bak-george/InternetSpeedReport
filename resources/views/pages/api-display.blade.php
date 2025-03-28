@@ -17,7 +17,7 @@
                                 <td class="table-data-rows sm:pl-3">{{ $userToken->token }}</td>
                                 <td class="table-data-rows sm:pl-3 cursor-pointer">
                                     <form method="POST" action="{{route('token.delete', $userToken->id)}}"
-                                        onsubmit="return confirm('Are you sure you want to delete this project')"
+                                        onsubmit="return confirm('Are you sure you want to delete this token?')"
                                         >
                                         @csrf
                                         @method('DELETE')
