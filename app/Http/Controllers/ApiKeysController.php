@@ -31,7 +31,7 @@ class ApiKeysController extends Controller
 
         $email = $user->email;
 
-        $countTokens = DB::table('personal_access_tokens')->count();
+        $countTokens = DB::table('user_tokens')->count();
 
         if (App::environment('production') && $countTokens > 5) {
             return redirect()->route('api')->with('error', 'Demo: Max tokens reached');
