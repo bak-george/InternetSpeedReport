@@ -4,6 +4,7 @@ use App\Http\Controllers\ApiKeysController;
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', [DataController::class, 'index'])->name('home');
 
@@ -30,3 +31,5 @@ Route::get('/profile/{user}', function() {
 Route::get('/about', function() {
     return view('pages.about');
 });
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');
