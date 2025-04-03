@@ -33,3 +33,4 @@ Route::get('/about', function() {
 });
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');

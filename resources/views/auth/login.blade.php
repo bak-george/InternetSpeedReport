@@ -2,10 +2,10 @@
   <div class="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
     <div class="w-full max-w-sm space-y-10">
       <div>
-        <img class="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
-        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900 ubuntu-regular">Sign in to your account</h2>
+        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900 ubuntu-regular">Internet Speed Report</h2>
       </div>
-      <form class="space-y-6" action="#" method="POST">
+      <form class="space-y-6" action="{{route('login.authenticate')}}" method="POST">
+        @csrf
         <div>
           <div class="col-span-2">
             <input id="email-address" name="email" type="email" autocomplete="email" required aria-label="Email address" class="block w-full rounded-t-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:relative focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 ubuntu-regular" placeholder="Email address">
