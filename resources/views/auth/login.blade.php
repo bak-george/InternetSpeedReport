@@ -7,7 +7,7 @@
       <form class="space-y-6" action="{{route('login.authenticate')}}" method="POST">
         @csrf
         <div>
-          <x-inputs.text id="email-address" name="email" type="email" autocomplete="email" ariaLabel="Email address" placeholder="Your email" divClass="col-span-2" roundedDirection="rounded-t-md"/>
+          <x-inputs.text id="email" name="email" type="email" autocomplete="email" ariaLabel="Email address" placeholder="Your email" divClass="col-span-2" roundedDirection="rounded-t-md"/>
           <x-inputs.text id="password" name="password" type="password" ariaLabel="Password" placeholder="Your password" divClass="-mt-px" roundedDirection="rounded-b-md"/>
         </div>
 
