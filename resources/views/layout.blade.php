@@ -35,6 +35,14 @@
        </div>
        <x-environment-error />
     </header>
+    @else
+    <header class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <h1 class="text-center text-4xl ubuntu-regular pt-5">
+            <a href="{{url('/')}}" class="drop-shadow-2xl text-gray-900 hover:text-gray-900">
+              Internet Speed Report
+            </a>
+         </h1>
+    </header>
     @endif
     <main>
         {{$slot}}

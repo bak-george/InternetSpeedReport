@@ -1,8 +1,8 @@
 <x-layout>
   <div class="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-    <div class="w-full max-w-sm space-y-10">
+    <div class="w-full max-w-sm space-y-2">
       <div>
-        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900 ubuntu-regular">Internet Speed Report</h2>
+        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900 ubuntu-regular">Log In</h2>
       </div>
       <form class="space-y-6" action="{{route('login.authenticate')}}" method="POST">
         @csrf
@@ -22,11 +22,11 @@
                 </svg>
               </div>
             </div>
-            <label for="remember-me" class="block text-sm/6 text-gray-900">Remember me</label>
+            <label for="remember-me" class="block text-sm text-black">Remember me</label>
           </div>
 
           <div class="text-sm/6">
-            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500 ubuntu-regular">Forgot password?</a>
+            <a href="#" class="text-sm ubuntu-medium drop-shadow-2xl">Forgot password?</a>
           </div>
         </div>
 
