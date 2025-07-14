@@ -29,27 +29,7 @@ class ApiKeysController extends Controller
     {
         $user = Auth::user();
 
-        $email = $user->email;
-
-        $countTokens = DB::table('user_tokens')->count();
-
-        if (App::environment('production') && $countTokens > 5) {
-            return redirect()->route('api')->with('error', 'Demo: Max tokens reached');
-        }
-
-        if (App::environment('production')) {
-            $token = 'demo_token' . Str::random(20);
-        } else {
-            $url = config('app.url');
-
-            $data = Http::post("{$url}/api/v1/login", [
-                'email' => $email,
-                'password' => 'password'
-            ]);
-
-            $response = $data->json();
-            $token = $response['data']['token'];
-        }
+        $token = $user->createToken('api-token')->plainTextToken;
 
         DB::table('user_tokens')->insertGetId([
             'user_id' => $user->id,
