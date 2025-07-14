@@ -6,7 +6,6 @@ use App\Models\Data;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class DataController extends Controller
 {
@@ -16,7 +15,11 @@ class DataController extends Controller
 
         $data = Data::orderBy('created_at', 'asc')->get();
 
-        return view('results.index', ['data' => $data, 'dataPaginated' => $dataPaginated]);
+        return view('results.index', [
+                 'data' => $data,
+                 'dataPaginated' => $dataPaginated,
+                ]
+            );
     }
 
     public function show(Data $data)

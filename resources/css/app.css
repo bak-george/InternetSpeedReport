@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,6 +52,12 @@
     font-weight: 700;
     font-style: italic;
 }
+
+.marker {
+    font-family: "Permanent Marker", cursive;
+    letter-spacing: 0.1rem
+}
+
 
 .table-header {
     @apply ubuntu-bold text-base py-3.5 pl-4 pr-3 text-center text-black;

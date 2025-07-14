@@ -12,11 +12,14 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                roboto: ['Ubuntu', 'serif']
+                roboto: ['Ubuntu', 'serif'],
             },
             colors: {
-                charcoal: '#2F4858',
-                frenchGray: '#CAC4CE'
+                purple: '#3F4896',
+                orangeRed: '#CF553E',
+                carrotOrange: '#F79928',
+                blackNight: '#100E11',
+                ashGray: '#C6D8D3'
             },
         },
     },
