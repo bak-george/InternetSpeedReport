@@ -36,29 +36,10 @@ class DataController extends Controller
 
     public function runSpeedTest()
     {
-        $countTokens = DB::table('data')->count();
-        $isLocal = App::environment('local');
+        Artisan::call('speedtest:run');
 
-        //production env = demo env
-        $canCreateData = App::environment('production') && $countTokens < 26;
+        $data = Data::latest()->first();
 
-        $key = 'error';
-        $msg = 'Demo: Maximum Data Reached.';
-        $redirectPath = '/';
-
-        if ($canCreateData) {
-            Data::factory()->create();
-        } elseif ($isLocal) {
-            Artisan::call('speedtest:run');
-        }
-
-        if ($canCreateData || $isLocal) {
-            $key = 'success';
-            $msg = 'Data created successfully!';
-            $data = Data::latest()->first();
-            $redirectPath = 'data/' . $data->id;
-        }
-
-        return redirect($redirectPath)->with($key, $msg);
+        return redirect('data/' . $data->id)->with('success', 'Data created successfully!');
     }
 }
