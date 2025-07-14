@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
+use Laravel\Fortify\Contracts\PasswordUpdateResponse;
+use Laravel\Fortify\Contracts\ProfileInformationUpdatedResponse;
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -21,7 +23,19 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->instance(PasswordUpdateResponse::class, new class implements PasswordUpdateResponse {
+            public function toResponse($request)
+            {
+                return back()->with('success', 'Password Updated!');
+            }
+        });
+
+        $this->app->instance(ProfileInformationUpdatedResponse::class, new class implements ProfileInformationUpdatedResponse {
+            public function toResponse($request)
+            {
+                return back()->with('success', 'Profile Upadated!');
+            }
+        });
     }
 
     /**
