@@ -27,7 +27,7 @@
                                     >
                                         Delete
                                     </button>
-                                    </form>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
