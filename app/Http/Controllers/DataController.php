@@ -11,19 +11,39 @@ class DataController extends Controller
 {
     public function index()
     {
-        $dataPaginated = Data::orderBy('created_at', 'desc')->paginate(10);
+        $userId = auth()->id();
 
-        $data = Data::orderBy('created_at', 'asc')->get();
+        $dataIds = DB::table('user_data')
+            ->where('user_id', $userId)
+            ->pluck('data_id');
+
+        $dataPaginated = Data::whereIn('id', $dataIds)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        $data = Data::whereIn('id', $dataIds)
+            ->orderBy('created_at', 'asc')
+            ->get();
 
         return view('results.index', [
-                 'data' => $data,
-                 'dataPaginated' => $dataPaginated,
-                ]
-            );
+            'data' => $data,
+            'dataPaginated' => $dataPaginated,
+        ]);
     }
 
     public function show(Data $data)
     {
+        $userId = auth()->id();
+
+        $exists = DB::table('user_data')
+            ->where('user_id', $userId)
+            ->where('data_id', $data->id)
+            ->exists();
+
+        if (!$exists) {
+            abort(403, 'Unauthorized');
+        }
+
         return view('data.show')->with('data', $data);
     }
 
@@ -39,6 +59,11 @@ class DataController extends Controller
         Artisan::call('speedtest:run');
 
         $data = Data::latest()->first();
+        $user = auth()->user();
+
+        if ($user && $data) {
+            $user->data()->attach($data->id);
+        }
 
         return redirect('data/' . $data->id)->with('success', 'Data created successfully!');
     }

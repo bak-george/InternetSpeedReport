@@ -1,5 +1,4 @@
 <x-layout>
-    {{ env('APP_URL') }}
     <div class="mt-5 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div>
             <div class="sm:flex sm:items-center">
