@@ -13,5 +13,5 @@
         </svg>
       </a>
     </div>
-  <p class="mt-8 ubuntu-regular text-sm/6 text-gray-600 md:order-1 md:mt-0">Contribute or report issues on <a href="https://github.com/bak-george/InternetSpeedReport">GitHub</a>. </p>
+  <p class="mt-8 ubuntu-regular text-sm/6 text-blackNight md:order-1 md:mt-0">Contribute or report issues on <a href="https://github.com/bak-george/InternetSpeedReport">GitHub</a>. </p>
 </div>

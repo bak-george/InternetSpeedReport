@@ -47,26 +47,26 @@
                                 {
                                     label: 'Download Speed (Mbps)',
                                     data: this.downloadValues,
-                                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                                    borderColor: '#3B82F6',
-                                    borderWidth: 3,
-                                    fill: true,
-                                },
-                                {
-                                    label: 'Upload Speed (Mbps)',
-                                    data: this.uploadValues,
-                                    backgroundColor: 'rgba(34, 197, 94, 0.2)',
-                                    borderColor: '#22C55E',
-                                    borderWidth: 3,
+                                    backgroundColor: 'rgba(198, 216, 211, 0.4)',
+                                    borderColor: '#3F4896',
+                                    borderWidth: 4,
                                     fill: true,
                                 },
                                 {
                                     label: 'Ping (ms)',
                                     data: this.pingValues,
-                                    borderColor: '#F97316',
-                                    borderWidth: 3,
+                                    borderColor: '#CF553E',
+                                    borderWidth: 4,
                                     fill: false,
                                     tension: 0.1,
+                                },
+                                {
+                                    label: 'Upload Speed (Mbps)',
+                                    data: this.uploadValues,
+                                    backgroundColor: 'rgba(247, 153, 40, 0.2)',
+                                    borderColor: '#F79928',
+                                    borderWidth: 4,
+                                    fill: true,
                                 },
                             ],
                         },
@@ -118,6 +118,6 @@
         x-init="init"
         class="w-full"
     >
-        <canvas x-ref="canvas" class="rounded-lg shadow-2xl bg-white p-8"></canvas>
+        <canvas x-ref="canvas" class="rounded-xl shadow-2xl bg-white p-8"></canvas>
     </div>
 </div>
