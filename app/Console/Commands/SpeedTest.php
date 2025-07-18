@@ -6,6 +6,7 @@ use App\Models\Data;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Process\Process;
+use Faker\Factory;
 
 class SpeedTest extends Command
 {
@@ -55,10 +56,22 @@ class SpeedTest extends Command
                 return 1;
             }
 
-            $name = ucfirst(fake()->words(3, true));
-
             $downloadMbps = convertToMegabytes($result['download']);
             $uploadMbps = convertToMegabytes($result['upload']);
+
+            if ($downloadMbps > 400) {
+                $emoji = "🚀";
+                $speed = "Fast";
+            } elseif ($downloadMbps > 200) {
+                $emoji = "⚡";
+                $speed = "Avg";
+            } else {
+                $emoji = "🐢";
+                $speed = "Slow";
+            }
+
+            $faker = Factory::create();
+            $name = $emoji . ' ' . $speed . ' ' . $result['server']['name'] . ' ' . ucfirst($faker->word);
 
             Data::create([
                 'name' => $name,

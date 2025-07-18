@@ -2,7 +2,7 @@
     @if ($data->isNotEmpty())
     <x-data-chart :data="$data" />
     <section class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="px-4 sm:px-6 lg:px-8 rounded-lg shadow-2xl bg-white">
+        <div class="px-4 sm:px-6 lg:px-8 rounded-xl shadow-2xl bg-white">
             <div class="mt-8 flow-root">
               <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle">

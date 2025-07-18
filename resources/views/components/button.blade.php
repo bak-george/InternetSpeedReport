@@ -15,7 +15,7 @@
     @endif
     <button
         type="submit"
-        :class="isLoading ? 'bg-carrotOrange text-nightBlack px-3 py-2 rounded-xl ubuntu-regular text-sm ubuntu-bold' : '{{ $route === 'delete' ? 'bg-orangeRed hover:bg-blackNight text-white' : 'bg-purple hover:bg-carrotOrange text-white' }} ubuntu-medium rounded-lg px-3 py-2 shadow-xl hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 {{ $mobile ? 'text-lg' : 'text-sm' }}'"
+        :class="isLoading ? 'bg-carrotOrange text-nightBlack px-3 py-2 rounded-xl ubuntu-regular text-sm' : '{{ $route === 'delete' ? 'bg-orangeRed hover:bg-blackNight text-white' : 'bg-purple hover:bg-carrotOrange text-white' }} ubuntu-medium rounded-lg px-3 py-2 shadow-xl hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 {{ $mobile ? 'text-lg' : 'text-sm' }}'"
         @if ($route !== 'delete')
             @click="isLoading = true"
         @endif
