@@ -5,7 +5,6 @@
     <div class="flex h-16 justify-between">
       <div class="flex">
         <div class="-ml-2 mr-2 flex items-center md:hidden">
-          <!-- Mobile menu button -->
           <button
             @click="open = !open"
             :aria-expanded="open.toString()"
@@ -14,7 +13,6 @@
             class="relative inline-flex items-center justify-center rounded-md p-2 text-white bg-purple hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
           >
             <span class="sr-only">Open main menu</span>
-            <!-- Closed -->
             <svg
               :class="{ 'hidden': open, 'block': !open }"
               class="size-6"
@@ -26,7 +24,6 @@
             >
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
-            <!-- Open -->
             <svg
               :class="{ 'block': open, 'hidden': !open }"
               class="size-6"
@@ -46,6 +43,7 @@
         <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
           <x-nav-link>Dashboard</x-nav-link>
           <x-nav-link url="/api">API</x-nav-link>
+          <x-nav-link url="/settings">Settings</x-nav-link>
         </div>
       </div>
       <div class="flex items-center">
